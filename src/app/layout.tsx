@@ -13,9 +13,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Minimal Portfolio Website Template - Aceternity UI Pro",
+  title: "Nadun Nissanka - UI Engineer",
   description:
-    "A perfect portfolio website template that showcases your skills, minimal and smooth microinteractions, perfect for developers and designers.",
+    "This is personal portfolio website of Nadun Nissanka, a UI Engineer.",
 };
 
 export default function RootLayout({
