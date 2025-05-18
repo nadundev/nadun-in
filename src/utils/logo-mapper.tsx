@@ -20,6 +20,12 @@ import {
   SCSSIcon,
   VueLogo,
   NuxtLogo,
+  SupabaseLogo,
+  PythonLogo,
+  FlaskLogo,
+  TensorFlowLogo,
+  FigmaLogo,
+  PokeballLogo
 } from "@/icons/stack";
 import { IconCode } from "@tabler/icons-react";
 import React from "react";
@@ -51,6 +57,12 @@ export const getLogoForTechnology = (technology: string) => {
     SASS: <SCSSIcon className="h-4 w-4 shrink-0" />,
     Vue: <VueLogo className="h-4 w-4 shrink-0" />,
     "Nuxt.js": <NuxtLogo className="h-4 w-4 shrink-0" />,
+    Supabase: <SupabaseLogo className="h-4 w-4 shrink-0" />,
+    Python: <PythonLogo className="h-4 w-4 shrink-0" />,
+    Flask: <FlaskLogo className="h-4 w-4 shrink-0" />,
+    "TensorFlow": <TensorFlowLogo className="h-4 w-4 shrink-0" />,
+    Figma: <FigmaLogo className="h-4 w-4 shrink-0" />,
+    Pokemon: <PokeballLogo className="h-4 w-4 shrink-0" />,
   };
 
   return (

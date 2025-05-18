@@ -1,59 +1,43 @@
 export type Project = {
-    title: string;
-    src: string;
-    href: string;
-    description: string;
-    stack: string[];
-}
+  title: string;
+  src: string;
+  href: string;
+  description: string;
+  stack: string[];
+};
 
 export const projects: Project[] = [
-    {
-      title: "Macbook Mockup",
-      src: "https://aceternity.com/cdn-cgi/image/width=2048/https://assets.aceternity.com/macbook-scroll.png",
-      href: "#",
-      description:
-        "A mockup of a Macbook that showcases the product and its features",
-      stack: ["React", "Next.js", "Tailwind CSS"],
-    },
+  {
+    title: "Gatherly",
+    src: "/projects/gatherly.png",
+    href: "https://gatherlyinvites.netlify.app/",
+    description:
+      "[Workin Progress] - An web app that helps people to create invites and share them.",
+    stack: ["React", "Tailwind CSS", "Supabase"],
+  },
 
-    {
-      title: "Instant Feedback",
-      src: "https://aceternity.com/cdn-cgi/image/width=2048/https://assets.aceternity.com/animated-testimonials.webp",
-      description:
-        "An interactive feedback system that provides instant responses to user actions",
-      href: "#",
-      stack: ["Vue", "Nuxt.js", "Tailwind CSS"],
-    },
-    {
-      title: "Apple Clone",
-      src: "https://aceternity.com/cdn-cgi/image/width=2048/https://assets.aceternity.com/apple-cards-carousel.png",
-      description:
-        "A clone of Apple's website that showcases their products and services",
-      href: "#",
-      stack: ["HTML5", "CSS3", "Tailwind CSS"],
-    },
-    {
-      title: "Flight Simulator",
-      src: "https://aceternity.com/cdn-cgi/image/width=2048/https://assets.aceternity.com/background-lines.webp",
-      description:
-        "A flight simulator that allows you to experience the thrill of flying over any location.",
-      href: "#",
-    stack: ["React", "Three.js", "Tailwind CSS"],
-    },
-    {
-      title: "Portfolio Website",
-      src: "https://aceternity.com/cdn-cgi/image/width=2048/https://assets.aceternity.com/floating-dock.png",
-      description:
-        "A modern portfolio website showcasing my projects and professional experience",
-      href: "#",
-      stack: ["React", "Next.js", "Tailwind CSS"],
-    },
-    {
-      title: "Blog Platform",
-      src: "https://aceternity.com/cdn-cgi/image/width=2048/https://assets.aceternity.com/hero-sections.webp",
-      description:
-        "A full-featured blog platform with markdown support and responsive design",
-      href: "#",
-      stack: ["React", "Next.js", "Tailwind CSS"],
-    },
-  ];
+  {
+    title: "Dynamic Fitness",
+    src: "/projects/dynamic-fitness.png",
+    description:
+      "Built a marketing site for Dynamic Fitness Sri Lanka, generating 800+ leads/month.",
+    href: "https://dynamicfitness.lk/",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS"],
+  },
+  {
+    title: "Poke TCG V1",
+    src: "/projects/poke-tcg.png",
+    description:
+      "You can find any pokemon card belongs to any generation through Poke TCG V1.",
+    href: "https://pokemon-tcg-v1.netlify.app/",
+    stack: ["React", "HTML5", "CSS3", "Pokemon"],
+  },
+  {
+    title: "Sperm morphology classifier",
+    src: "/projects/sperm.png",
+    description:
+      "Image classification of sperm morphology defects using machine learning.",
+    href: "https://github.com/Nadunnissanka/Classifer-for-sperm",
+    stack: ["Python", "Flask", "TensorFlow"],
+  },
+];

@@ -16,27 +16,12 @@ export const Timeline = () => {
   const isInView = useInView(ref, { once: true });
   const data: Data[] = [
     {
-      title: "2025",
-      content: [
-        {
-          title: "Reached $20K MRR with my VSCode fork.",
-          description:
-            "Reached the revenue milestone of $20K MRR with my VSCode fork.",
-        },
-      ],
-    },
-    {
       title: "2024",
       content: [
         {
-          title: "Launched my own developer tools startup",
+          title: "Joined Midfunnel as a UX Design Engineer",
           description:
-            "Founded a company focused on creating innovative tools for software developers.",
-        },
-        {
-          title: "Spoke at React Conference",
-          description:
-            "Delivered a keynote presentation about modern frontend architecture patterns.",
+            "Stepped in the startup world and started working on the midfunnel AI platform.",
         },
       ],
     },
@@ -44,14 +29,9 @@ export const Timeline = () => {
       title: "2023",
       content: [
         {
-          title: "Contributed to open source",
+          title: "Joined Calcey as a UI Engineer",
           description:
-            "Became a core contributor to several popular React and Next.js libraries.",
-        },
-        {
-          title: "Published technical book",
-          description:
-            "Authored 'Advanced Frontend Architecture' which sold over 10,000 copies.",
+            "Joined Calcey as a UI Engineer and started working for clients like Upflex, Nelly and Taxglobal.",
         },
       ],
     },
@@ -59,24 +39,9 @@ export const Timeline = () => {
       title: "2022",
       content: [
         {
-          title: "Led engineering team at tech startup",
+          title: "Graduated from University of Westminster",
           description:
-            "Managed a team of 12 engineers building a SaaS platform with over 50,000 users.",
-        },
-      ],
-    },
-    {
-      title: "2021",
-      content: [
-        {
-          title: "Graduated with Computer Science degree",
-          description:
-            "Completed my Bachelor's degree with honors and specialization in software engineering.",
-        },
-        {
-          title: "Built my first production application",
-          description:
-            "Developed and deployed a web application that gained 5,000 monthly active users.",
+            "Graduated from University of Westminster with a BSc in Computer Science with first class honours.",
         },
       ],
     },
@@ -84,9 +49,34 @@ export const Timeline = () => {
       title: "2020",
       content: [
         {
-          title: "Started learning web development",
+          title: "Started my first internship at Global Market Technologies",
           description:
-            "Began my journey into programming with JavaScript, HTML, and CSS.",
+            "Joined as an intern UI/UX Engineer at Global Market Technologies.",
+        },
+      ],
+    },
+    {
+      title: "2018",
+      content: [
+        {
+          title: "Started University of Westminster (BSc in Computer Science)",
+          description:
+            "Completed my Bachelor's degree with honors and specialization in software engineering.",
+        },
+        {
+          title: "Started Web development course by Angela Yu",
+          description:
+            "Learned fundermentals of web development and started building my own projects.",
+        },
+      ],
+    },
+    {
+      title: "2017",
+      content: [
+        {
+          title: "Graduated from Royal College, Colombo",
+          description:
+            "Graduated from Royal College with completed A/Ls in Commerce Stream.",
         },
       ],
     },

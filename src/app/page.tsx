@@ -18,12 +18,12 @@ export default function Home() {
       <Container className="min-h-screen px-4 md:px-8 md:pt-20 md:pb-10">
         <Scales />
         <div className="flex flex-col sm:flex-row sm:items-center">
-          <Heading>John MacTavish</Heading>
+          <Heading>Nadun Nissanka</Heading>
           <Flipper />
         </div>
         <Subheading>
-          They call me Soap. What the hell kind of a name is Soap? I'm a
-          software engineer though with an eye for design.
+          They call me Pixel. What kind of name is Pixel? I'm a UI
+          engineer. clean code by day, crisp design by instinct.
         </Subheading>
         <Projects projects={projects.slice(0, 3)} />
         <LandingBlogs />

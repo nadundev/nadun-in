@@ -5,11 +5,10 @@ import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 
 export const Flipper = () => {
   const words = [
-    "Software Engineer",
-    "Design Engineer",
-    "Full Stack Engineer",
+    "UI/UX Engineer",
+    "UX Design Engineer",
     "Front-end Engineer",
-    "Vibe Coding Engineer",
+    "Software Engineer",
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

@@ -20,8 +20,8 @@ export default function AboutPage() {
         <Scales />
         <Heading>About Me</Heading>
         <Subheading>
-          I'm a passionate software engineer dedicated to crafting elegant
-          solutions for complex problems. With expertise in full-stack
+          I'm a passionate UI engineer dedicated to crafting elegant
+          solutions for complex problems. With expertise in UX Design and UI
           development, I enjoy building user-centric applications that make a
           difference.
         </Subheading>

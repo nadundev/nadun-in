@@ -5,34 +5,22 @@ import { SectionHeading } from "./section-heading";
 export const Testimonials = () => {
   const data = [
     {
-      quote: `Manu is so great with his work, our production was shut down within the first day itself. Highly recommended.`,
-      name: "Elon Musk",
+      quote: `Nadun was a supportive and inspiring mentor at Calcey, greatly impacting my growth. He leads by example, values collaboration, and brings deep expertise in full-stack development and UX.`,
+      name: "Senesh Sirimanne",
       avatar:
-        "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=3648&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "/images/testimonials/senesh.png",
     },
     {
-      quote: `Working with Manu was a game-changer for our startup. His technical expertise and problem-solving skills are unmatched.`,
-      name: "Mark Zuckerberg",
+      quote: `Working with Nadun was a game-changer for our startup. His technical expertise and problem-solving skills are unmatched.`,
+      name: "Aravind Prabash",
       avatar:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=3744&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "/images/testimonials/aravind.png",
     },
     {
-      quote: `Manu delivered our project ahead of schedule and exceeded all expectations. His attention to detail is remarkable.`,
-      name: "Sundar Pichai",
+      quote: `Nadun is a brilliant UI engineer whom I had the pleasure of working with at Calcey. Nadun consistently impressed me with his expertise in UI concepts, design, and coding.`,
+      name: "Hasaru Dayananda",
       avatar:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=5184&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      quote: `The quality of Manu's code is exceptional. He built a scalable solution that has been critical to our business growth.`,
-      name: "Jeff Bezos",
-      avatar:
-        "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=5360&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      quote: `Manu's innovative approach to our complex requirements saved us months of development time. Truly a 10x engineer.`,
-      name: "Satya Nadella",
-      avatar:
-        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "/images/testimonials/hasaru.png",
     },
   ];
   return (
