@@ -8,7 +8,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "About | Minimal Portfolio Website Template - Aceternity UI Pro",
+  title: "Nadun Nissanka - UI Engineer",
   description:
     "A perfect portfolio website template that showcases your skills, minimal and smooth microinteractions, perfect for developers and designers.",
 };

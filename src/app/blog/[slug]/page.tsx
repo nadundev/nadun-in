@@ -19,7 +19,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: frontmatter.title + " by Manu Arora",
+    title: frontmatter.title + " by Nadun Nissanka",
     description: frontmatter.description,
   };
 }

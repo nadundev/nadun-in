@@ -6,7 +6,7 @@ import { Subheading } from "@/components/subheading";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact | Minimal Portfolio Website Template - Aceternity UI Pro",
+  title: "Nadun Nissanka - UI Engineer",
   description:
     "A perfect portfolio website template that showcases your skills, minimal and smooth microinteractions, perfect for developers and designers.",
 };

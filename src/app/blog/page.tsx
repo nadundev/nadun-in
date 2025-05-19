@@ -8,7 +8,7 @@ import { Scales } from "@/components/scales";
 import { MotionDiv } from "@/components/motion-div";
 
 export const metadata: Metadata = {
-  title: "All blogs | Minimal Portfolio Website Template - Aceternity UI Pro",
+  title: "Nadun Nissanka - UI Engineer",
   description:
     "A perfect portfolio website template that showcases your skills, minimal and smooth microinteractions, perfect for developers and designers.",
 };
