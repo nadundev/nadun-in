@@ -98,7 +98,7 @@ export const Projects = ({
               onClick={(e) => e.stopPropagation()}
             >
               <button
-                className="absolute top-4 right-4 flex items-center justify-center w-9 h-9 rounded-full bg-neutral-100 dark:bg-neutral-800 text-2xl text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition"
+                className="absolute top-4 right-4 flex items-center justify-center w-9 h-9 rounded-full bg-neutral-100 dark:bg-neutral-800 text-2xl text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition cursor-pointer"
                 onClick={() => setSelectedUXProject(null)}
                 aria-label="Close modal"
               >
@@ -127,6 +127,16 @@ export const Projects = ({
                   </span>
                 ))}
               </div>
+              {selectedUXProject.href && (
+                <a
+                  href={selectedUXProject.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-block rounded-md border border-neutral-200 bg-neutral-100 px-4 py-1.5 text-sm text-neutral-700 shadow-[0px_4px_8px_0px_var(--color-neutral-200)_inset] transition-all duration-150 hover:bg-neutral-200 hover:scale-105 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-200 dark:shadow-[0px_4px_8px_0px_var(--color-neutral-700)_inset] dark:hover:bg-neutral-700"
+                >
+                  View Project
+                </a>
+              )}
             </motion.div>
           </motion.div>
         )}
