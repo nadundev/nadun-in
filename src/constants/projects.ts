@@ -36,6 +36,14 @@ export const projects: Project[] = [
     type: "dev",
   },
   {
+    title: "Krpto",
+    src: "/projects/Krypto.png",
+    description: "Website design for a crypto trading platform.",
+    href: "https://www.figma.com/community/file/1506994664118773985",
+    stack: ["Figma", "Wireframe", "Prototyping"],
+    type: "ux",
+  },
+  {
     title: "Poke TCG V1",
     src: "/projects/poke-tcg.png",
     description:
