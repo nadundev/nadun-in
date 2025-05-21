@@ -18,7 +18,7 @@ export default function ProjectsPage() {
         <Scales />
         <Heading>Projects</Heading>
         <Subheading>
-          I'm a passionate software engineer dedicated to crafting elegant
+          I'm a passionate UI/UX Engineer dedicated to crafting elegant
           solutions for complex problems. With expertise in full-stack
           development, I enjoy building user-centric applications that make a
           difference.
