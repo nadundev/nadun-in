@@ -1,14 +1,7 @@
 import type { NextConfig } from "next";
-const nextConfig: NextConfig = {
-  transpilePackages: ["next-mdx-remote"],
-  images: {
-    remotePatterns: [
-      {
-        hostname: "aceternity.com",
-      },
-    ],
-  },
-};
 
+const nextConfig: NextConfig = {
+  /* config options here */
+};
 
 export default nextConfig;
