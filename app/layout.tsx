@@ -102,10 +102,15 @@ export const metadata: Metadata = {
     template: "%s | Nadun Nissanka"
   },
   description: "Award-winning UX Designer specializing in user-centered design, product strategy, and digital experiences. View my portfolio of innovative design solutions.",
-  keywords: ["UX Designer", "User Experience", "Product Designer", "UI Design", "Portfolio", "Nadun Nissanka"],
+  keywords: ["UX Designer", "User Experience", "Product Designer", "UI Design", "Portfolio", "Nadun Nissanka", "Sri Lanka", "Design"],
   authors: [{ name: "Nadun Nissanka" }],
   creator: "Nadun Nissanka",
   publisher: "Nadun Nissanka",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   robots: {
     index: true,
     follow: true,
@@ -130,6 +135,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: 'Nadun Nissanka - UX Designer Portfolio',
+        type: 'image/jpeg',
       },
     ],
   },
@@ -138,15 +144,22 @@ export const metadata: Metadata = {
     title: 'Nadun Nissanka - UX Designer',
     description: 'Award-winning UX Designer specializing in user-centered design, product strategy, and digital experiences.',
     creator: '@your-twitter-handle',
-    images: ['/og-image.jpg'],
+    images: {
+      url: '/og-image.jpg',
+      alt: 'Nadun Nissanka - UX Designer Portfolio',
+    },
   },
   verification: {
-    google: 'your-google-verification-code',
-    // yandex: 'your-yandex-verification-code',
-    // yahoo: 'your-yahoo-verification-code',
+    google: 'BuZc1879yCDqlLHuNo_2hB_wvz3tiyJdQdDzv7yNqfE',
   },
   alternates: {
     canonical: 'https://nadun.in',
+  },
+  other: {
+    'theme-color': '#000000',
+    'color-scheme': 'light',
+    'twitter:image:alt': 'Nadun Nissanka - UX Designer Portfolio',
+    'og:image:alt': 'Nadun Nissanka - UX Designer Portfolio',
   },
 };
 
