@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Karla } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import StructuredData from "./components/StructuredData";
 
 const quincyCF = localFont({
   src: [
@@ -95,8 +96,58 @@ const karla = Karla({
 });
 
 export const metadata: Metadata = {
-  title: "Nadun - UX Designer",
-  description: "Designing portfolio of Nadun Nissanka",
+  metadataBase: new URL('https://nadun.in'),
+  title: {
+    default: "Nadun Nissanka - UX Designer",
+    template: "%s | Nadun Nissanka"
+  },
+  description: "Award-winning UX Designer specializing in user-centered design, product strategy, and digital experiences. View my portfolio of innovative design solutions.",
+  keywords: ["UX Designer", "User Experience", "Product Designer", "UI Design", "Portfolio", "Nadun Nissanka"],
+  authors: [{ name: "Nadun Nissanka" }],
+  creator: "Nadun Nissanka",
+  publisher: "Nadun Nissanka",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://nadun.in',
+    title: 'Nadun Nissanka - UX Designer',
+    description: 'Award-winning UX Designer specializing in user-centered design, product strategy, and digital experiences.',
+    siteName: 'Nadun Nissanka Portfolio',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Nadun Nissanka - UX Designer Portfolio',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Nadun Nissanka - UX Designer',
+    description: 'Award-winning UX Designer specializing in user-centered design, product strategy, and digital experiences.',
+    creator: '@your-twitter-handle',
+    images: ['/og-image.jpg'],
+  },
+  verification: {
+    google: 'your-google-verification-code',
+    // yandex: 'your-yandex-verification-code',
+    // yahoo: 'your-yahoo-verification-code',
+  },
+  alternates: {
+    canonical: 'https://nadun.in',
+  },
 };
 
 export default function RootLayout({
@@ -106,6 +157,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <StructuredData />
+      </head>
       <body
         className={`${quincyCF.variable} ${karla.variable} antialiased`}
       >

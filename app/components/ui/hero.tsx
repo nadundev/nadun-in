@@ -136,7 +136,7 @@ export default function Hero({
       <div className="relative z-10 flex flex-col items-center justify-center text-center space-y-8 md:space-y-12">
         {/* Hero text with letter animation */}
         <div className="max-w-4xl min-h-[80px] md:min-h-[100px]">
-          <p className="text-white font-sans text-lg md:text-xl lg:text-2xl xl:text-3xl font-light italic leading-tight">
+          <p className="text-white font-sans text-2xl md:text-2xl lg:text-3xl xl:text-3xl font-light italic leading-tight">
             {words.map((word, wordIndex) => (
               <span key={wordIndex} className="inline-block mr-[0.25em]">
                 {word.split("").map((char, charIndex) => {
