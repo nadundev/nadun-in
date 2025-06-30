@@ -15,6 +15,20 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "electro",
+    title: "Electro Ecommerce Website",
+    description: "Simple ecommerce website for a local electronics store.",
+    category: "Ecommerce",
+    image: "/electro/electro.webp",
+    previewImage: "/electro/electro-preview.webp",
+    primaryColor: "#FF975B", // Blue
+    gradient: "linear-gradient(180deg, #FF975B, #fff 30%)",
+    role: "UX Designer",
+    startDate: "March 2025",
+    completedDate: "May 2025",
+    tools: ["Figma", "Notion"],
+  },
+  {
     slug: "sisyphus",
     title: "Sisyphus Vendor Management",
     description:

@@ -8,6 +8,7 @@ import { Project } from "@/lib/projectsData";
 import SisyphusContent from "@/app/components/projects/sisyphusContent";
 import SkilledContent from "../projects/skilledContent";
 import KryptoContent from "../projects/kryptoContent";
+import ElectroContent from "../projects/electroContent";
 
 interface ProjectPageContentProps {
   project: Project;
@@ -16,6 +17,8 @@ interface ProjectPageContentProps {
 // Function to render project-specific content
 const renderProjectContent = (slug: string) => {
   switch (slug) {
+    case "electro":
+      return <ElectroContent />;
     case "sisyphus":
       return <SisyphusContent />;
     case "skilled":
