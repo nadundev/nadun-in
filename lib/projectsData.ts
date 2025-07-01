@@ -44,20 +44,6 @@ export const projects: Project[] = [
     tools: ["Figma", "TlDraw"],
   },
   {
-    slug: "skilled",
-    title: "Skilled Landing Page",
-    description: "A landing page for professional skills training platform.",
-    category: "Web Design",
-    image: "/skilled/skilled.webp",
-    previewImage: "/skilled/skilled-preview.webp",
-    primaryColor: "#F74780", // pink
-    gradient: "linear-gradient(180deg, #FFA7C3, #fff 30%)",
-    role: "Product Designer",
-    startDate: "January 2025",
-    completedDate: "February 2025",
-    tools: ["Figma", "Adobe XD", "Framer"],
-  },
-  {
     slug: "krypto",
     title: "Krypto Landing Page",
     description: "Elgent website landing page for Crypto and NFT platform.",

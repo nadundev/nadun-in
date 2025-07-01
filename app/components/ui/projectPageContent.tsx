@@ -6,7 +6,6 @@ import { ArrowLeftIcon, UserIcon, CalendarDaysIcon, CheckCircleIcon, WrenchScrew
 
 import { Project } from "@/lib/projectsData";
 import SisyphusContent from "@/app/components/projects/sisyphusContent";
-import SkilledContent from "../projects/skilledContent";
 import KryptoContent from "../projects/kryptoContent";
 import ElectroContent from "../projects/electroContent";
 
@@ -21,8 +20,6 @@ const renderProjectContent = (slug: string) => {
       return <ElectroContent />;
     case "sisyphus":
       return <SisyphusContent />;
-    case "skilled":
-      return <SkilledContent />;
     case "krypto":
       return <KryptoContent />;
     default:
