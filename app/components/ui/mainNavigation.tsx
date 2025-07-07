@@ -4,8 +4,14 @@ import { Button } from "@/components/ui/button";
 import { SpringElement } from "@/components/ui/spring-element";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
+import GitHubIcon from "@/app/components/icons/GitHubIcon";
+import LinkedInIcon from "@/app/components/icons/LinkedInIcon";
+import AIIcon from "@/app/components/icons/AIIcon";
 
 export default function MainNavigation() {
+  const router = useRouter();
+
   return (
     <div className="flex justify-between items-center pt-6 pb-8">
       <div className="flex items-center gap-4">
@@ -38,7 +44,7 @@ export default function MainNavigation() {
             )
           }
         >
-          Github
+          <GitHubIcon size={16} />
         </Button>
         <Button
           variant="neutral"
@@ -50,7 +56,14 @@ export default function MainNavigation() {
             )
           }
         >
-          LinkedIn
+          <LinkedInIcon size={16} />
+        </Button>
+        <Button
+          variant="neutral"
+          className="font-mono"
+          onClick={() => router.push('/ai')}
+        >
+          <AIIcon size={16} />
         </Button>
       </div>
     </div>

@@ -198,57 +198,7 @@ export default function Home() {
                   These images are generated with prompts that Nadun wrote
                 </motion.p>
               </motion.div>
-            </section>
-            <section className="pt-32">
-              <motion.div
-                className="flex flex-col items-center gap-2"
-                initial={{ opacity: 0, y: -50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                viewport={{ once: true, amount: 0.3 }}
-              >
-                <p className="font-mono uppercase tracking-wider text-sm font-medium text-center text-gray-500">
-                  Experience
-                </p>
-                <h3 className="text-4xl md:text-5xl font-sans italic font-normal text-gray-700 leading-tight text-center">
-                  Brands I Have Rendered My Expertise To
-                </h3>
-                <p className="text-lg font-mono font-medium text-gray-500 max-w-3xl leading-normal text-center">
-                  With a passion for blending creative design and technical
-                  execution, I&apos;ve partnered with both startups and enterprises
-                  to elevate their digital presence.
-                </p>
-
-                {/* Company Logos Grid */}
-                <motion.div
-                  className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12 max-w-4xl mx-auto"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                >
-                  {[
-                    { src: "/companies/company-1.svg", alt: "Company 1 Logo" },
-                    { src: "/companies/company-2.svg", alt: "Company 2 Logo" },
-                    { src: "/companies/company-4.svg", alt: "Company 4 Logo" },
-                    { src: "/companies/company-5.svg", alt: "Company 5 Logo" },
-                  ].map((logo, index) => (
-                    <motion.div
-                      key={index}
-                      className="relative flex items-center justify-center p-6 bg-white rounded-lg border border-gray-200 hover:border-gray-300 transition-colors duration-300 ease-out"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <img
-                        src={logo.src}
-                        alt={logo.alt}
-                        className="w-full h-12 object-contain transition-all duration-300"
-                      />
-                    </motion.div>
-                  ))}
-                </motion.div>
-              </motion.div>
-            </section>
+            </section>           
             <section className="pt-32">
               <motion.div
                 className="flex flex-col items-center gap-2"
@@ -344,6 +294,56 @@ export default function Home() {
               >
                 Click on the images to view the certificates.
               </motion.p>
+            </section>
+            <section className="pt-32">
+              <motion.div
+                className="flex flex-col items-center gap-2"
+                initial={{ opacity: 0, y: -50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                <p className="font-mono uppercase tracking-wider text-sm font-medium text-center text-gray-500">
+                  Experience
+                </p>
+                <h3 className="text-4xl md:text-5xl font-sans italic font-normal text-gray-700 leading-tight text-center">
+                  Brands I Have Rendered My Expertise To
+                </h3>
+                <p className="text-lg font-mono font-medium text-gray-500 max-w-3xl leading-normal text-center">
+                  With a passion for blending creative design and technical
+                  execution, I&apos;ve partnered with both startups and enterprises
+                  to elevate their digital presence.
+                </p>
+
+                {/* Company Logos Grid */}
+                <motion.div
+                  className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12 max-w-4xl mx-auto"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                >
+                  {[
+                    { src: "/companies/company-1.svg", alt: "Company 1 Logo" },
+                    { src: "/companies/company-2.svg", alt: "Company 2 Logo" },
+                    { src: "/companies/company-4.svg", alt: "Company 4 Logo" },
+                    { src: "/companies/company-5.svg", alt: "Company 5 Logo" },
+                  ].map((logo, index) => (
+                    <motion.div
+                      key={index}
+                      className="relative flex items-center justify-center p-6 bg-white rounded-lg border border-gray-200 hover:border-gray-300 transition-colors duration-300 ease-out"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <img
+                        src={logo.src}
+                        alt={logo.alt}
+                        className="w-full h-12 object-contain transition-all duration-300"
+                      />
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </motion.div>
             </section>
             <section className="py-16">
               <div className="max-w-4xl mx-auto px-4 py-16">
