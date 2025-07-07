@@ -15,6 +15,35 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "tutory",
+    title: "Tutory Tutor Booking Platform",
+    description:
+      "Helping students to find the right tutor and help tutors to find new students.",
+    category: "Mobile App",
+    image: "/tutory/tutory.webp",
+    previewImage: "/tutory/tutory-preview.webp",
+    primaryColor: "#35A0FE", // Blue
+    gradient: "linear-gradient(180deg, #35A0FE, #fff 30%)",
+    role: "UX Designer",
+    startDate: "June 2025",
+    completedDate: "June 2025",
+    tools: ["Figma", "TlDraw"],
+  },
+  {
+    slug: "krypto",
+    title: "Krypto Landing Page",
+    description: "Elgent website landing page for Crypto and NFT platform.",
+    category: "Web Design",
+    image: "/krypto/krypto.webp",
+    previewImage: "/krypto/krypto-preview.webp",
+    primaryColor: "#AAD9D9", // cyan
+    gradient: "linear-gradient(180deg, #AAD9D9, #fff 30%)",
+    role: "Brand Designer",
+    startDate: "February 2025",
+    completedDate: "March 2025",
+    tools: ["Illustrator", "Figma", "InDesign"],
+  },
+  {
     slug: "electro",
     title: "Electro Ecommerce Website",
     description: "Simple ecommerce website for a local electronics store.",
@@ -44,18 +73,19 @@ export const projects: Project[] = [
     tools: ["Figma", "TlDraw"],
   },
   {
-    slug: "krypto",
-    title: "Krypto Landing Page",
-    description: "Elgent website landing page for Crypto and NFT platform.",
-    category: "Web Design",
-    image: "/krypto/krypto.webp",
-    previewImage: "/krypto/krypto-preview.webp",
-    primaryColor: "#AAD9D9", // cyan
-    gradient: "linear-gradient(180deg, #AAD9D9, #fff 30%)",
-    role: "Brand Designer",
-    startDate: "February 2025",
-    completedDate: "March 2025",
-    tools: ["Illustrator", "Figma", "InDesign"],
+    slug: "afterpay",
+    title: "Afterpay Dashboard Design",
+    description:
+      "Free for all design that I did to practice my design skills and this is the result.",
+    category: "Concept Design",
+    image: "/afterpay/afterpay.webp",
+    previewImage: "/afterpay/afterpay-preview.webp",
+    primaryColor: "#6AFED0", // Blue
+    gradient: "linear-gradient(180deg, #6AFED0, #fff 30%)",
+    role: "UX Designer",
+    startDate: "November 2023",
+    completedDate: "November 2023",
+    tools: ["Figma"],
   },
 ];
 

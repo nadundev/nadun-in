@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 
-const electroContent = () => {
+const AfterpayContent = () => {
   return (
     <div>
       <div className="max-w-4xl mx-auto px-4 py-16">
@@ -12,7 +12,7 @@ const electroContent = () => {
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true, amount: 0.3 }}
         >
-          <p className="font-mono uppercase tracking-wider text-sm font-medium text-center text-gray-500">
+          {/* <p className="font-mono uppercase tracking-wider text-sm font-medium text-center text-gray-500">
             Design
           </p>
           <h3 className="text-4xl md:text-5xl font-sans italic font-normal text-gray-700 leading-tight text-center">
@@ -36,11 +36,11 @@ const electroContent = () => {
             initiating checkout. Special attention was given to responsive
             behavior, ensuring that the design adapted seamlessly from mobile to
             large screen, while maintaining functional and visual coherence.
-          </p>
+          </p> */}
           <button
             onClick={() =>
               window.open(
-                "https://www.figma.com/design/ooYVqWWZvOHDjAXKnosB0u/Electro-Store?node-id=0-1&t=9e1TzYrPnE0vo8M6-1https://www.figma.com/design/ooYVqWWZvOHDjAXKnosB0u/Electro-Store?node-id=0-1&t=9e1TzYrPnE0vo8M6-1",
+                "https://www.figma.com/design/qkJ3ZI4lU0ecgZTzJyzcB2/Project02---Afterpay-Redesign?node-id=104-1137&t=BLCy8K01dbd1vgKN-1",
                 "_blank"
               )
             }
@@ -48,50 +48,6 @@ const electroContent = () => {
           >
             View Design
           </button>
-          <img
-            src="/electro/electro-design.webp"
-            alt="Sisyphus"
-            className="w-full h-auto rounded-lg"
-            style={{
-              imageRendering: "crisp-edges" as const,
-              maxWidth: "100%",
-              height: "auto",
-            }}
-            loading="lazy"
-            decoding="async"
-          />
-        </motion.div>
-      </div>
-      <div className="max-w-4xl mx-auto px-4 py-16">
-        <hr className="pb-16" />
-        <motion.div
-          className="flex flex-col items-center gap-2"
-          initial={{ opacity: 0, y: -50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <p className="font-mono uppercase tracking-wider text-sm font-medium text-center text-gray-500">
-            Learnings
-          </p>
-          <h3 className="text-4xl md:text-5xl font-sans italic font-normal text-gray-700 leading-tight text-center">
-            Design Systems, Responsiveness, and Real World Collaboration
-          </h3>
-          <p className="text-lg font-mono font-medium text-gray-500 max-w-3xl leading-normal text-center">
-            This project allowed me to strengthen my Figma workflow,
-            particularly around building design systems and prototyping complex
-            flows. I became more confident designing mobile-first layouts,
-            making sure content remained accessible and aesthetically balanced
-            on smaller screens before scaling up. I also deepened my
-            understanding of visual hierarchy—fine-tuning spacing, alignment,
-            and typography to improve clarity and navigation. Another key
-            learning was refining how I hand off designs to developers. I kept
-            the layers clean, used consistent naming conventions, and organized
-            components with documentation in mind. Feedback loops played a major
-            role too: I iterated frequently based on peer and mentor input,
-            adjusting layout spacing, contrast, and component behavior to ensure
-            the final outcome was both user-friendly and implementation-ready.
-          </p>
         </motion.div>
       </div>
       <div className="max-w-4xl mx-auto px-4 py-16">
@@ -111,4 +67,4 @@ const electroContent = () => {
   );
 };
 
-export default electroContent;
+export default AfterpayContent;

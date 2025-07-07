@@ -184,6 +184,7 @@ export default function SisyphusContent() {
                 "_blank"
               )
             }
+            disabled={true}
             className="mt-4 mb-6 px-4 py-2 text-sm bg-gray-700 hover:bg-gray-800 text-white font-mono font-medium rounded-md transition-colors duration-300 ease-in-out cursor-pointer"
           >
             View Design
