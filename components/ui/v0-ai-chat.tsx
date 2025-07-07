@@ -422,19 +422,4 @@ export function VercelV0Chat() {
     );
 }
 
-interface ActionButtonProps {
-    icon: React.ReactNode;
-    label: string;
-}
-
-function ActionButton({ icon, label }: ActionButtonProps) {
-    return (
-        <button
-            type="button"
-            className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-full border border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors"
-        >
-            {icon}
-            <span className="text-xs">{label}</span>
-        </button>
-    );
-} 
+ 
