@@ -73,14 +73,9 @@ const TutoryContent = () => {
                 <Binoculars className="w-6 h-6 text-[#22b5ff]" />
               </div>
               <p className="text-base font-mono font-medium text-gray-600 max-w-3xl leading-normal">
-                <span className="font-bold">
-                  Insights That Informed Our Design -
-                </span>{" "}
-                Our user interviews and market analysis revealed one major
-                theme: complexity hinders clarity. Teams want flexibility but
-                not at the cost of usability. We translated these pain points
-                into a dashboard experience that is clean, functional, and
-                focused empowering users without overwhelming them.
+                <span className="font-bold">Students & perants -</span> to
+                search for tutors based on subject, grade level, location, and
+                other preferences without needing to log in
               </p>
             </div>
           </div>
@@ -106,7 +101,7 @@ const TutoryContent = () => {
             mobile-first design, considering the target audience. The color
             palette is soft, friendly, and trustworthy.
           </p>
-          
+
           <div className="w-full max-w-xs mx-auto mt-6">
             <Slider
               {...{
@@ -154,7 +149,7 @@ const TutoryContent = () => {
               ))}
             </Slider>
           </div>
-          
+
           <div className="flex justify-center mt-6">
             <FigmaButton href="https://www.figma.com/design/VpkDJWkOFUhcXW7jbY6sHs/Tutorfinder?node-id=23-939&t=ug0C2sA1bQDmq2Yy-1" />
           </div>
@@ -180,11 +175,11 @@ const TutoryContent = () => {
             sophistication. I realized students aren’t looking for advanced
             features, they just want to quickly find a tutor they can trust.
             Features like messaging, reviews, or sign ups felt unnecessary for
-            this context; instead, a clear profile and a call button were more
-            valuable. Talking to real users helped me understand what matters:
-            trust, speed, and ease. This project reminded me that good design
-            isn’t about adding more it’s about removing friction and focusing on
-            what actually solves the problem.
+            this context; instead, a clear profile and a booking button were
+            more valuable. Talking to real users helped me understand what
+            matters: trust, speed, and ease. This project reminded me that good
+            design isn’t about adding more it’s about removing friction and
+            focusing on what actually solves the problem.
           </p>
         </motion.div>
       </div>
