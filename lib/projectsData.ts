@@ -15,6 +15,21 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "skilled",
+    title: "Skilled Landing Page",
+    description:
+      "Landing page design for a education content platform called skilled.",
+    category: "Landing Page",
+    image: "/skilled/skilled.webp",
+    previewImage: "/skilled/skilled-preview.webp",
+    primaryColor: "#FFDEE9", // Blue
+    gradient: "linear-gradient(180deg, #FFDEE9, #fff 30%)",
+    role: "UX Designer",
+    startDate: "June 2025",
+    completedDate: "ongoing",
+    tools: ["Figma", "Miro", "Notion"],
+  },
+  {
     slug: "tutory",
     title: "Tutory Tutor Booking Platform",
     description:
