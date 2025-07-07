@@ -6,14 +6,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-    ImageIcon,
-    FileUp,
-    Figma,
-    MonitorIcon,
-    CircleUserRound,
     ArrowUpIcon,
     Paperclip,
-    PlusIcon,
 } from "lucide-react";
 
 interface UseAutoResizeTextareaProps {
