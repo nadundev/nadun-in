@@ -1,14 +1,16 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { VercelV0Chat } from "@/components/ui/v0-ai-chat";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeftIcon, HomeIcon } from "@heroicons/react/24/outline";
+import { ArrowLeftIcon, HomeIcon } from "@heroicons/react/24/solid";
 
 const AiChat = () => {
+  const [shouldCenterVertically, setShouldCenterVertically] = useState(true);
+
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white overflow-hidden">
         {/* Gradient background */}
         <div
           className="absolute inset-x-0 top-0 h-screen pointer-events-none"
@@ -18,7 +20,7 @@ const AiChat = () => {
         
         {/* Back button */}
         <motion.div
-          className="inline-block mb-6 sm:mb-8 self-start"
+          className="inline-block mb-6 sm:mb-8 self-start relative z-10"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -33,15 +35,15 @@ const AiChat = () => {
               </div>
               <span className="flex gap-1 items-center font-mono text-xs font-medium text-gray-600">
                 <HomeIcon className="h-3 w-3 flex-shrink-0" />
-                <span className="hidden sm:inline">Home</span>
+                <span className="inline">Home</span>
               </span>
             </div>
           </Link>
         </motion.div>
         
         {/* Centered AI Chat */}
-        <div className="flex-1 flex items-center justify-center">
-          <VercelV0Chat />
+        <div className={`flex-1 flex justify-center relative min-h-0 ${shouldCenterVertically ? 'items-center' : 'items-start'}`}>
+          <VercelV0Chat onAlignmentChange={setShouldCenterVertically} />
         </div>
       </div>
     </main>

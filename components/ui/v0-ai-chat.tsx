@@ -22,6 +22,10 @@ interface Message {
     timestamp: Date;
 }
 
+interface VercelV0ChatProps {
+    onAlignmentChange?: (shouldCenterVertically: boolean) => void;
+}
+
 function useAutoResizeTextarea({
     minHeight,
     maxHeight,
@@ -73,11 +77,13 @@ function useAutoResizeTextarea({
     return { textareaRef, adjustHeight };
 }
 
-export function VercelV0Chat() {
+export function VercelV0Chat({ onAlignmentChange }: VercelV0ChatProps = {}) {
     const [value, setValue] = useState("");
     const [messages, setMessages] = useState<Message[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [showInitial, setShowInitial] = useState(true);
+    const [textareaHeight, setTextareaHeight] = useState(60); // Track textarea height
+    const [isDesktop, setIsDesktop] = useState(false); // Track screen size
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const { textareaRef, adjustHeight } = useAutoResizeTextarea({
         minHeight: 60,
@@ -91,6 +97,55 @@ export function VercelV0Chat() {
     useEffect(() => {
         scrollToBottom();
     }, [messages]);
+
+    // Notify parent of alignment changes
+    useEffect(() => {
+        onAlignmentChange?.(showInitial && messages.length === 0);
+    }, [showInitial, messages.length, onAlignmentChange]);
+
+    // Update textarea height tracking
+    const updateTextareaHeight = () => {
+        if (textareaRef.current) {
+            const height = textareaRef.current.offsetHeight;
+            setTextareaHeight(height);
+        }
+    };
+
+    // Watch for textarea height changes and initial setup
+    useEffect(() => {
+        const textarea = textareaRef.current;
+        if (textarea) {
+            // Set initial height
+            updateTextareaHeight();
+            
+            const resizeObserver = new ResizeObserver(() => {
+                updateTextareaHeight();
+            });
+            resizeObserver.observe(textarea);
+            return () => resizeObserver.disconnect();
+        }
+    }, [textareaRef, showInitial]); // Add showInitial to re-run when switching to chat mode
+
+    // Track screen size for responsive height calculation
+    useEffect(() => {
+        const checkScreenSize = () => {
+            setIsDesktop(window.innerWidth >= 640); // sm breakpoint
+        };
+        
+        checkScreenSize();
+        window.addEventListener('resize', checkScreenSize);
+        return () => window.removeEventListener('resize', checkScreenSize);
+    }, []);
+
+    // Calculate dynamic height based on screen size and textarea height
+    const getMessagesHeight = () => {
+        const extraHeight = Math.max(0, textareaHeight - 60); // Additional height beyond minimum
+        if (isDesktop) {
+            return `calc(600px - ${160 + extraHeight}px)`; // Desktop calculation
+        } else {
+            return `calc(100dvh - ${190 + extraHeight}px)`; // Mobile calculation (updated from 140 to 190)
+        }
+    };
 
     const handleSendMessage = async () => {
         if (!value.trim()) return;
@@ -185,14 +240,23 @@ export function VercelV0Chat() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1 }}
                         >
-                            How can I help you today?
+                            Hi, I am Kiriputha ✨
                         </motion.h1>
+
+                        <motion.p
+                            className="text-base sm:text-lg font-mono text-gray-500 text-center px-4 -mt-4"
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                        >
+                            Nadun&apos;s AI assistant. Ask me about his work, projects, or design expertise!
+                        </motion.p>
 
                         <motion.div 
                             className="w-full max-w-2xl"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 }}
+                            transition={{ delay: 0.3 }}
                         >
                             <div className="relative bg-white dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-800 shadow-sm">
                                 <div className="overflow-y-auto">
@@ -204,7 +268,7 @@ export function VercelV0Chat() {
                                             adjustHeight();
                                         }}
                                         onKeyDown={handleKeyDown}
-                                        placeholder="Ask from Kiriputha..."
+                                        placeholder="Ask me anything about Nadun..."
                                         className={cn(
                                             "w-full px-3 sm:px-4 py-3",
                                             "resize-none",
@@ -279,10 +343,15 @@ export function VercelV0Chat() {
                             duration: 0.4,
                             ease: "easeOut"
                         }}
-                        className="flex flex-col h-[calc(100vh-8rem)] sm:h-[600px] max-h-[800px]"
+                        className="flex flex-col w-full"
                     >
                         {/* Messages Container */}
-                        <div className="flex-1 overflow-y-auto p-2 sm:p-4 space-y-3 sm:space-y-4">
+                        <div 
+                            className="overflow-y-auto p-2 sm:p-4 space-y-3 sm:space-y-4"
+                            style={{
+                                height: getMessagesHeight()
+                            }}
+                        >
                             <AnimatePresence>
                                 {messages.map((message, index) => (
                                     <motion.div
@@ -345,76 +414,78 @@ export function VercelV0Chat() {
                             <div ref={messagesEndRef} />
                         </div>
 
-                        {/* Input Container */}
+                        {/* Input Container - Fixed at bottom on mobile */}
                         <motion.div 
-                            className="border-t border-neutral-200 dark:border-neutral-800 p-2 sm:p-4 bg-white dark:bg-neutral-900"
+                            className="fixed bottom-0 left-0 right-0 sm:relative sm:bottom-auto border-t border-neutral-200 dark:border-neutral-800 p-2 sm:p-4 bg-white/95 dark:bg-neutral-900/95 backdrop-blur-md sm:backdrop-blur-none shadow-lg sm:shadow-none z-50 sm:z-auto"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
                         >
-                            <div className="relative bg-white dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-800 shadow-sm">
-                                <div className="overflow-y-auto">
-                                    <Textarea
-                                        ref={textareaRef}
-                                        value={value}
-                                        onChange={(e) => {
-                                            setValue(e.target.value);
-                                            adjustHeight();
-                                        }}
-                                        onKeyDown={handleKeyDown}
-                                        placeholder="Type your message..."
-                                        className={cn(
-                                            "w-full px-3 sm:px-4 py-3",
-                                            "resize-none",
-                                            "bg-transparent",
-                                            "border-none",
-                                            "text-black dark:text-white text-base",
-                                            "focus:outline-none",
-                                            "focus-visible:ring-0 focus-visible:ring-offset-0",
-                                            "placeholder:text-neutral-500 placeholder:text-base",
-                                            "min-h-[50px] sm:min-h-[60px]"
-                                        )}
-                                        style={{
-                                            overflow: "hidden",
-                                            fontSize: "16px", // Prevent iOS zoom
-                                        }}
-                                    />
-                                </div>
-
-                                <div className="flex items-center justify-between p-2 sm:p-3">
-                                    <div className="flex items-center gap-1 sm:gap-2">
-                                        <button
-                                            type="button"
-                                            className="group p-1.5 sm:p-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors flex items-center gap-1"
-                                        >
-                                            <Paperclip className="w-4 h-4 text-black dark:text-white" />
-                                            <span className="text-xs text-neutral-500 dark:text-zinc-400 hidden sm:group-hover:inline transition-opacity">
-                                                Attach
-                                            </span>
-                                        </button>
-                                    </div>
-                                    <div className="flex items-center gap-1 sm:gap-2">
-                                        <button
-                                            type="button"
-                                            onClick={handleSendMessage}
-                                            disabled={!value.trim() || isLoading}
+                            <div className="max-w-4xl mx-auto">
+                                <div className="relative bg-white dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-800 shadow-sm">
+                                    <div className="overflow-y-auto">
+                                        <Textarea
+                                            ref={textareaRef}
+                                            value={value}
+                                            onChange={(e) => {
+                                                setValue(e.target.value);
+                                                adjustHeight();
+                                            }}
+                                            onKeyDown={handleKeyDown}
+                                            placeholder="Type your message..."
                                             className={cn(
-                                                "px-1.5 py-1.5 rounded-lg text-sm transition-colors border border-neutral-300 dark:border-zinc-700 hover:border-neutral-400 dark:hover:border-zinc-600 hover:bg-neutral-100 dark:hover:bg-zinc-800 flex items-center justify-between gap-1",
-                                                value.trim() && !isLoading
-                                                    ? "bg-black dark:bg-white text-white dark:text-black"
-                                                    : "text-neutral-500 dark:text-zinc-400"
+                                                "w-full px-3 sm:px-4 py-3",
+                                                "resize-none",
+                                                "bg-transparent",
+                                                "border-none",
+                                                "text-black dark:text-white text-base",
+                                                "focus:outline-none",
+                                                "focus-visible:ring-0 focus-visible:ring-offset-0",
+                                                "placeholder:text-neutral-500 placeholder:text-base",
+                                                "min-h-[50px] sm:min-h-[60px]"
                                             )}
-                                        >
-                                            <ArrowUpIcon
+                                            style={{
+                                                overflow: "hidden",
+                                                fontSize: "16px", // Prevent iOS zoom
+                                            }}
+                                        />
+                                    </div>
+
+                                    <div className="flex items-center justify-between p-2 sm:p-3">
+                                        <div className="flex items-center gap-1 sm:gap-2">
+                                            <button
+                                                type="button"
+                                                className="group p-1.5 sm:p-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors flex items-center gap-1"
+                                            >
+                                                <Paperclip className="w-4 h-4 text-black dark:text-white" />
+                                                <span className="text-xs text-neutral-500 dark:text-zinc-400 hidden sm:group-hover:inline transition-opacity">
+                                                    Attach
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <div className="flex items-center gap-1 sm:gap-2">
+                                            <button
+                                                type="button"
+                                                onClick={handleSendMessage}
+                                                disabled={!value.trim() || isLoading}
                                                 className={cn(
-                                                    "w-4 h-4",
+                                                    "px-1.5 py-1.5 rounded-lg text-sm transition-colors border border-neutral-300 dark:border-zinc-700 hover:border-neutral-400 dark:hover:border-zinc-600 hover:bg-neutral-100 dark:hover:bg-zinc-800 flex items-center justify-between gap-1",
                                                     value.trim() && !isLoading
-                                                        ? "text-white dark:text-black"
+                                                        ? "bg-black dark:bg-white text-white dark:text-black"
                                                         : "text-neutral-500 dark:text-zinc-400"
                                                 )}
-                                            />
-                                            <span className="sr-only">Send</span>
-                                        </button>
+                                            >
+                                                <ArrowUpIcon
+                                                    className={cn(
+                                                        "w-4 h-4",
+                                                        value.trim() && !isLoading
+                                                            ? "text-white dark:text-black"
+                                                            : "text-neutral-500 dark:text-zinc-400"
+                                                    )}
+                                                />
+                                                <span className="sr-only">Send</span>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

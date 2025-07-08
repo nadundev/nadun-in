@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { SYSTEM_PROMPT } from "@/lib/prompt";
 
 interface Message {
   id: string;
@@ -21,6 +22,21 @@ export async function POST(request: NextRequest) {
 
     // Prepare the conversation context for Gemini
     const contents = [];
+
+    // Add system prompt as the first message
+    contents.push({
+      parts: [{ text: SYSTEM_PROMPT }],
+      role: "user",
+    });
+
+    contents.push({
+      parts: [
+        {
+          text: "I understand. I am Kiriputha, Nadun Nissanka's AI assistant. I'm ready to help visitors learn about Nadun's work, experience, and design expertise. How can I assist you?",
+        },
+      ],
+      role: "model",
+    });
 
     // Add conversation history
     messages.forEach((msg: Message) => {
