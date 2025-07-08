@@ -162,7 +162,7 @@ export function VercelV0Chat() {
     };
 
     return (
-        <div className="flex flex-col w-full max-w-4xl mx-auto relative">
+        <div className="flex flex-col w-full max-w-4xl mx-auto relative px-2 sm:px-4">
             <AnimatePresence mode="wait">
                 {showInitial && messages.length === 0 ? (
                     <motion.div
@@ -177,10 +177,10 @@ export function VercelV0Chat() {
                             duration: 0.3,
                             ease: "easeInOut"
                         }}
-                        className="flex flex-col items-center p-4 space-y-8"
+                        className="flex flex-col items-center p-2 sm:p-4 space-y-6 sm:space-y-8 min-h-[50vh] justify-center"
                     >
                         <motion.h1 
-                            className="text-4xl font-sans italic font-medium text-gray-700 dark:text-white"
+                            className="text-2xl sm:text-3xl lg:text-4xl font-sans italic font-medium text-gray-700 dark:text-white text-center px-2"
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1 }}
@@ -189,12 +189,12 @@ export function VercelV0Chat() {
                         </motion.h1>
 
                         <motion.div 
-                            className="w-full"
+                            className="w-full max-w-2xl"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
                         >
-                            <div className="relative bg-white dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-800">
+                            <div className="relative bg-white dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-800 shadow-sm">
                                 <div className="overflow-y-auto">
                                     <Textarea
                                         ref={textareaRef}
@@ -206,14 +206,14 @@ export function VercelV0Chat() {
                                         onKeyDown={handleKeyDown}
                                         placeholder="Ask from Kiriputha..."
                                         className={cn(
-                                            "w-full px-4 py-3",
+                                            "w-full px-3 sm:px-4 py-3",
                                             "resize-none",
                                             "bg-transparent",
                                             "border-none",
-                                            "text-black dark:text-white text-sm",
+                                            "text-black dark:text-white text-sm sm:text-base",
                                             "focus:outline-none",
                                             "focus-visible:ring-0 focus-visible:ring-offset-0",
-                                            "placeholder:text-neutral-500 placeholder:text-sm",
+                                            "placeholder:text-neutral-500 placeholder:text-sm sm:placeholder:text-base",
                                             "min-h-[60px]"
                                         )}
                                         style={{
@@ -222,19 +222,19 @@ export function VercelV0Chat() {
                                     />
                                 </div>
 
-                                <div className="flex items-center justify-between p-3">
-                                    <div className="flex items-center gap-2">
+                                <div className="flex items-center justify-between p-2 sm:p-3">
+                                    <div className="flex items-center gap-1 sm:gap-2">
                                         <button
                                             type="button"
-                                            className="group p-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors flex items-center gap-1"
+                                            className="group p-1.5 sm:p-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors flex items-center gap-1"
                                         >
                                             <Paperclip className="w-4 h-4 text-black dark:text-white" />
-                                            <span className="text-xs text-neutral-500 dark:text-zinc-400 hidden group-hover:inline transition-opacity">
+                                            <span className="text-xs text-neutral-500 dark:text-zinc-400 hidden sm:group-hover:inline transition-opacity">
                                                 Attach
                                             </span>
                                         </button>
                                     </div>
-                                    <div className="flex items-center gap-2">
+                                    <div className="flex items-center gap-1 sm:gap-2">
                                         <button
                                             type="button"
                                             onClick={handleSendMessage}
@@ -278,10 +278,10 @@ export function VercelV0Chat() {
                             duration: 0.4,
                             ease: "easeOut"
                         }}
-                        className="flex flex-col h-[600px]"
+                        className="flex flex-col h-[calc(100vh-8rem)] sm:h-[600px] max-h-[800px]"
                     >
                         {/* Messages Container */}
-                        <div className="flex-1 overflow-y-auto p-4 space-y-4">
+                        <div className="flex-1 overflow-y-auto p-2 sm:p-4 space-y-3 sm:space-y-4">
                             <AnimatePresence>
                                 {messages.map((message, index) => (
                                     <motion.div
@@ -308,13 +308,15 @@ export function VercelV0Chat() {
                                     >
                                         <div
                                             className={cn(
-                                                "max-w-[80%] rounded-lg px-4 py-2",
+                                                "max-w-[85%] sm:max-w-[80%] rounded-lg px-3 sm:px-4 py-2 sm:py-3",
                                                 message.role === 'user'
-                                                    ? "bg-black text-white"
-                                                    : "bg-neutral-100 dark:bg-neutral-800 text-black dark:text-white"
+                                                    ? "bg-black text-white rounded-br-sm"
+                                                    : "bg-neutral-100 dark:bg-neutral-800 text-black dark:text-white rounded-bl-sm"
                                             )}
                                         >
-                                            <p className="text-sm">{message.content}</p>
+                                            <p className="text-sm sm:text-base leading-relaxed whitespace-pre-wrap break-words">
+                                                {message.content}
+                                            </p>
                                         </div>
                                     </motion.div>
                                 ))}
@@ -327,7 +329,7 @@ export function VercelV0Chat() {
                                     exit={{ opacity: 0, y: -10 }}
                                     className="flex justify-start"
                                 >
-                                    <div className="bg-neutral-100 dark:bg-neutral-800 rounded-lg px-4 py-2 max-w-[80%]">
+                                    <div className="bg-neutral-100 dark:bg-neutral-800 rounded-lg rounded-bl-sm px-3 sm:px-4 py-2 sm:py-3 max-w-[85%] sm:max-w-[80%]">
                                         <div className="flex items-center space-x-2">
                                             <div className="flex space-x-1">
                                                 <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
@@ -344,12 +346,12 @@ export function VercelV0Chat() {
 
                         {/* Input Container */}
                         <motion.div 
-                            className="border-t border-neutral-200 dark:border-neutral-800 p-4"
+                            className="border-t border-neutral-200 dark:border-neutral-800 p-2 sm:p-4 bg-white dark:bg-neutral-900"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
                         >
-                            <div className="relative bg-white dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-800">
+                            <div className="relative bg-white dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-800 shadow-sm">
                                 <div className="overflow-y-auto">
                                     <Textarea
                                         ref={textareaRef}
@@ -361,15 +363,15 @@ export function VercelV0Chat() {
                                         onKeyDown={handleKeyDown}
                                         placeholder="Type your message..."
                                         className={cn(
-                                            "w-full px-4 py-3",
+                                            "w-full px-3 sm:px-4 py-3",
                                             "resize-none",
                                             "bg-transparent",
                                             "border-none",
-                                            "text-black dark:text-white text-sm",
+                                            "text-black dark:text-white text-sm sm:text-base",
                                             "focus:outline-none",
                                             "focus-visible:ring-0 focus-visible:ring-offset-0",
-                                            "placeholder:text-neutral-500 placeholder:text-sm",
-                                            "min-h-[60px]"
+                                            "placeholder:text-neutral-500 placeholder:text-sm sm:placeholder:text-base",
+                                            "min-h-[50px] sm:min-h-[60px]"
                                         )}
                                         style={{
                                             overflow: "hidden",
@@ -377,19 +379,19 @@ export function VercelV0Chat() {
                                     />
                                 </div>
 
-                                <div className="flex items-center justify-between p-3">
-                                    <div className="flex items-center gap-2">
+                                <div className="flex items-center justify-between p-2 sm:p-3">
+                                    <div className="flex items-center gap-1 sm:gap-2">
                                         <button
                                             type="button"
-                                            className="group p-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors flex items-center gap-1"
+                                            className="group p-1.5 sm:p-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors flex items-center gap-1"
                                         >
                                             <Paperclip className="w-4 h-4 text-black dark:text-white" />
-                                            <span className="text-xs text-neutral-500 dark:text-zinc-400 hidden group-hover:inline transition-opacity">
+                                            <span className="text-xs text-neutral-500 dark:text-zinc-400 hidden sm:group-hover:inline transition-opacity">
                                                 Attach
                                             </span>
                                         </button>
                                     </div>
-                                    <div className="flex items-center gap-2">
+                                    <div className="flex items-center gap-1 sm:gap-2">
                                         <button
                                             type="button"
                                             onClick={handleSendMessage}
