@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Karla } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -94,6 +94,15 @@ const karla = Karla({
   variable: "--font-karla-mono",
   subsets: ["latin"],
 });
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  // Also disable zoom on iOS
+  viewportFit: 'cover',
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://nadun.in'),

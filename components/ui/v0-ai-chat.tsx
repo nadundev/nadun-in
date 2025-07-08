@@ -210,14 +210,15 @@ export function VercelV0Chat() {
                                             "resize-none",
                                             "bg-transparent",
                                             "border-none",
-                                            "text-black dark:text-white text-sm sm:text-base",
+                                            "text-black dark:text-white text-base",
                                             "focus:outline-none",
                                             "focus-visible:ring-0 focus-visible:ring-offset-0",
-                                            "placeholder:text-neutral-500 placeholder:text-sm sm:placeholder:text-base",
+                                            "placeholder:text-neutral-500 placeholder:text-base",
                                             "min-h-[60px]"
                                         )}
                                         style={{
                                             overflow: "hidden",
+                                            fontSize: "16px", // Prevent iOS zoom
                                         }}
                                     />
                                 </div>
@@ -367,14 +368,15 @@ export function VercelV0Chat() {
                                             "resize-none",
                                             "bg-transparent",
                                             "border-none",
-                                            "text-black dark:text-white text-sm sm:text-base",
+                                            "text-black dark:text-white text-base",
                                             "focus:outline-none",
                                             "focus-visible:ring-0 focus-visible:ring-offset-0",
-                                            "placeholder:text-neutral-500 placeholder:text-sm sm:placeholder:text-base",
+                                            "placeholder:text-neutral-500 placeholder:text-base",
                                             "min-h-[50px] sm:min-h-[60px]"
                                         )}
                                         style={{
                                             overflow: "hidden",
+                                            fontSize: "16px", // Prevent iOS zoom
                                         }}
                                     />
                                 </div>
