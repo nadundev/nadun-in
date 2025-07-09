@@ -240,7 +240,7 @@ export function VercelV0Chat({ onAlignmentChange }: VercelV0ChatProps = {}) {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1 }}
                         >
-                            Hi, I am Kiriputha ✨
+                            Hi, I am Nadun's AI assistant ✨
                         </motion.h1>
 
                         <motion.p
