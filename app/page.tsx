@@ -5,6 +5,7 @@ import Marquee from "./components/ui/marquee";
 import MainNavigation from "./components/ui/mainNavigation";
 import PortfolioCard from "./components/ui/portfolioCard";
 import SplashScreen from "./components/ui/splashScreen";
+import AnimatedTechFlow from "./components/ui/animatedTechFlow";
 import { getPortfolioProjects } from "@/lib/projectsData";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
@@ -43,24 +44,26 @@ export default function Home() {
   // Handle scroll to top button visibility
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
       const scrollHeight = document.documentElement.scrollHeight;
       const clientHeight = document.documentElement.clientHeight;
-      
+
       // Show button when user scrolls past 80% of the page
-      const scrollPercentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
+      const scrollPercentage =
+        (scrollTop / (scrollHeight - clientHeight)) * 100;
       setShowScrollToTop(scrollPercentage > 80);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [showContent]);
 
   // Smooth scroll to top function
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   };
 
@@ -198,7 +201,33 @@ export default function Home() {
                   These images are generated with prompts that Nadun wrote
                 </motion.p>
               </motion.div>
-            </section>           
+            </section>
+            <section className="pt-32">
+              <motion.div
+                className="flex flex-col items-center gap-2"
+                initial={{ opacity: 0, y: -50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                <p className="font-mono uppercase tracking-wider text-sm font-medium text-center text-gray-500">
+                  Tools
+                </p>
+                <h3 className="text-4xl md:text-5xl font-sans italic font-normal text-gray-700 leading-tight text-center">
+                  Prompting to Build Awesome Websites
+                </h3>
+                <p className="text-lg font-mono font-medium text-gray-500 max-w-3xl leading-normal text-center">
+                  I leverage cutting-edge AI-powered development tools to build
+                  exceptional digital experiences. Using Cursor with Claude 4
+                  for intelligent code generation, Next.js for robust frontend
+                  frameworks, and Supabase for seamless backend solutions —
+                  turning ideas into production-ready applications faster than
+                  ever before.
+                </p>
+                <AnimatedTechFlow />
+                
+              </motion.div>
+            </section>
             <section className="pt-32">
               <motion.div
                 className="flex flex-col items-center gap-2"
@@ -220,19 +249,19 @@ export default function Home() {
                   and best practices in user experience.
                 </p>
                 <div className="pt-10">
-                                     <div className="flex items-center gap-3 md:gap-4 p-4 md:p-8 bg-gray-50 border-1 border-gray-200 rounded-t-2xl rounded-b-md mb-3">
-                     <a
-                       href="https://topweb.lk/winners/dynamicfitness/"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       className="flex-shrink-0"
-                     >
-                       <img
-                         src="/awards/topweb-june-2025.jpg"
-                         alt="top-web-lk"
-                         className="w-12 h-12 md:w-16 md:h-16 rounded-md hover:scale-105 transition-transform duration-200 cursor-pointer"
-                       />
-                     </a>
+                  <div className="flex items-center gap-3 md:gap-4 p-4 md:p-8 bg-gray-50 border-1 border-gray-200 rounded-t-2xl rounded-b-md mb-3">
+                    <a
+                      href="https://topweb.lk/winners/dynamicfitness/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-shrink-0"
+                    >
+                      <img
+                        src="/awards/topweb-june-2025.jpg"
+                        alt="top-web-lk"
+                        className="w-12 h-12 md:w-16 md:h-16 rounded-md hover:scale-105 transition-transform duration-200 cursor-pointer"
+                      />
+                    </a>
                     <p className="text-base font-mono font-medium text-gray-600 max-w-3xl leading-normal">
                       <span className="font-bold">
                         Top Web Sri Lanka Winner
@@ -241,19 +270,19 @@ export default function Home() {
                       designing and developing dynamicfitness.lk website.
                     </p>
                   </div>
-                                     <div className="flex items-center gap-3 md:gap-4 p-4 md:p-8 bg-gray-50 border-1 border-gray-200 rounded-md mb-3">
-                     <a
-                       href="https://www.coursera.org/account/accomplishments/verify/DX2LMF924D2J"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       className="flex-shrink-0"
-                     >
-                       <img
-                         src="/awards/google.png"
-                         alt="top-web-lk"
-                         className="w-10 h-10 md:w-14 md:h-14 rounded-md hover:scale-105 transition-transform duration-200 cursor-pointer"
-                       />
-                     </a>
+                  <div className="flex items-center gap-3 md:gap-4 p-4 md:p-8 bg-gray-50 border-1 border-gray-200 rounded-md mb-3">
+                    <a
+                      href="https://www.coursera.org/account/accomplishments/verify/DX2LMF924D2J"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-shrink-0"
+                    >
+                      <img
+                        src="/awards/google.png"
+                        alt="top-web-lk"
+                        className="w-10 h-10 md:w-14 md:h-14 rounded-md hover:scale-105 transition-transform duration-200 cursor-pointer"
+                      />
+                    </a>
                     <p className="text-base font-mono font-medium text-gray-600 max-w-3xl leading-normal">
                       <span className="font-bold">
                         Google UX Design Certification
@@ -262,19 +291,19 @@ export default function Home() {
                       Design course.
                     </p>
                   </div>
-                                     <div className="flex items-center gap-3 md:gap-4 p-4 md:p-8 bg-gray-50 border-1 border-gray-200 rounded-t-md rounded-b-2xl mb-3">
-                     <a
-                       href="https://www.coursera.org/account/accomplishments/verify/UIMHP08IWD93?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       className="flex-shrink-0"
-                     >
-                       <img
-                         src="/awards/google.png"
-                         alt="top-web-lk"
-                         className="w-10 h-10 md:w-14 md:h-14 rounded-md hover:scale-105 transition-transform duration-200 cursor-pointer"
-                       />
-                     </a>
+                  <div className="flex items-center gap-3 md:gap-4 p-4 md:p-8 bg-gray-50 border-1 border-gray-200 rounded-t-md rounded-b-2xl mb-3">
+                    <a
+                      href="https://www.coursera.org/account/accomplishments/verify/UIMHP08IWD93?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-shrink-0"
+                    >
+                      <img
+                        src="/awards/google.png"
+                        alt="top-web-lk"
+                        className="w-10 h-10 md:w-14 md:h-14 rounded-md hover:scale-105 transition-transform duration-200 cursor-pointer"
+                      />
+                    </a>
                     <p className="text-base font-mono font-medium text-gray-600 max-w-3xl leading-normal">
                       <span className="font-bold">
                         Google UX Design Certification
@@ -311,8 +340,8 @@ export default function Home() {
                 </h3>
                 <p className="text-lg font-mono font-medium text-gray-500 max-w-3xl leading-normal text-center">
                   With a passion for blending creative design and technical
-                  execution, I&apos;ve partnered with both startups and enterprises
-                  to elevate their digital presence.
+                  execution, I&apos;ve partnered with both startups and
+                  enterprises to elevate their digital presence.
                 </p>
 
                 {/* Company Logos Grid */}
