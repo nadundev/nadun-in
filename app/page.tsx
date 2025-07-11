@@ -6,6 +6,7 @@ import MainNavigation from "./components/ui/mainNavigation";
 import PortfolioCard from "./components/ui/portfolioCard";
 import SplashScreen from "./components/ui/splashScreen";
 import AnimatedTechFlow from "./components/ui/animatedTechFlow";
+import AnimatedTechGrid from "./components/ui/animatedTechGrid";
 import { getPortfolioProjects } from "@/lib/projectsData";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
@@ -224,7 +225,14 @@ export default function Home() {
                   turning ideas into production-ready applications faster than
                   ever before.
                 </p>
-                <AnimatedTechFlow />
+                {/* Show animated graph on larger screens */}
+                <div className="hidden sm:block">
+                  <AnimatedTechFlow />
+                </div>
+                {/* Show animated grid on mobile */}
+                <div className="block sm:hidden">
+                  <AnimatedTechGrid />
+                </div>
                 
               </motion.div>
             </section>

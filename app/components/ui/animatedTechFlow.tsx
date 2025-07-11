@@ -11,14 +11,14 @@ export default function AnimatedTechFlow() {
       transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
       viewport={{ once: true, amount: 0.3 }}
     >
-      <div className="w-full max-w-4xl overflow-hidden">
+      <div className="w-full max-w-6xl mx-auto overflow-hidden px-4">
         <svg 
           width="100%" 
           height="340" 
           viewBox="0 0 640 340" 
           fill="none" 
           xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-auto"
+          className="w-full h-auto min-h-[280px] md:min-h-[340px]"
         >
           <style>
             {`
