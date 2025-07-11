@@ -383,12 +383,70 @@ export default function Home() {
               </motion.div>
             </section>
             <section className="py-16">
-              <div className="max-w-4xl mx-auto px-4 py-16">
-                <hr className="pb-16" />
-                <p className="text-center text-sm font-mono text-gray-500">
-                  © 2025 All rights reserved.
-                </p>
-              </div>
+              <motion.div 
+                className="max-w-4xl mx-auto px-4 py-16"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ amount: 0.3 }}
+              >
+                <div className="relative mb-12">
+                  <div className="absolute inset-0 flex items-center">
+                    <div className="w-full border-t border-gray-200"></div>
+                  </div>
+                  <div className="relative flex justify-center">
+                    <span className="bg-white px-4 text-sm font-mono text-gray-400">
+                      Thank you for visiting
+                    </span>
+                  </div>
+                </div>
+                
+                <div className="text-center space-y-4">
+                  <div className="flex items-center justify-center gap-2">
+                    <motion.div
+                      className="w-2 h-2 bg-gray-300 rounded-full"
+                      animate={{ scale: [1, 1.2, 1] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    />
+                    <p className="text-sm font-mono text-gray-500 font-medium">
+                      © 2025 All rights reserved.
+                    </p>
+                    <motion.div
+                      className="w-2 h-2 bg-gray-300 rounded-full"
+                      animate={{ scale: [1, 1.2, 1] }}
+                      transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+                    />
+                  </div>
+                  
+                  <motion.div
+                    className="inline-flex items-center gap-3 px-4 py-2 bg-gray-50 rounded-full border border-gray-200 hover:border-gray-300 transition-all duration-300 ease-out"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <span className="text-xs font-mono text-gray-400 uppercase tracking-wider">
+                      Previous Work
+                    </span>
+                    <a 
+                      href="https://nadunnissankauiux.netlify.app/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-sm font-mono font-semibold text-gray-700 hover:text-gray-900 transition-colors duration-200"
+                    >
+                      View Old Portfolio →
+                    </a>
+                  </motion.div>
+                  
+                  <motion.p 
+                    className="text-xs font-mono text-gray-400 mt-6"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                    viewport={{ amount: 0.3 }}
+                  >
+                    Built with Next.js, Tailwind CSS, and Framer Motion
+                  </motion.p>
+                </div>
+              </motion.div>
             </section>
           </div>
         </motion.main>
