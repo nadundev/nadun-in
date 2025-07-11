@@ -9,7 +9,7 @@ export default function AnimatedTechFlow() {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ amount: 0.3 }}
     >
       <div className="w-full max-w-6xl mx-auto overflow-hidden px-4">
         <svg 
