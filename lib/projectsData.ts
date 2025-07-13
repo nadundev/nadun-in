@@ -117,6 +117,16 @@ export const projects: Project[] = [
 
 export const webProjects: WebProject[] = [
   {
+    title: "Dev Portfolio - 2023",
+    description: "Project that created for a local pub with GSAP animations.",
+    category: "GSAP Animation",
+    previewImage: "/web-projects/irishPreview.png",
+    previewType: "image",
+    websiteUrl: "https://irishpub.netlify.app/",
+    technologies: ["React", "Three.js", "Tailwind CSS", "Framer Motion"],
+    completedDate: "June 2025",
+  },
+  {
     title: "Dynamic Fitness",
     description:
       "Best web Sri Lanka winner 2025 - Website for a fitness center in Sri Lanka.",
