@@ -7,7 +7,7 @@ import PortfolioCard from "./components/ui/portfolioCard";
 import SplashScreen from "./components/ui/splashScreen";
 import AnimatedTechFlow from "./components/ui/animatedTechFlow";
 import AnimatedTechGrid from "./components/ui/animatedTechGrid";
-import { getPortfolioProjects } from "@/lib/projectsData";
+import { getPortfolioProjects, getWebProjects } from "@/lib/projectsData";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { ChevronUp } from "lucide-react";
@@ -15,11 +15,13 @@ import { ChevronUp } from "lucide-react";
 export default function Home() {
   // Portfolio projects data - now using shared data source
   const portfolioProjects = getPortfolioProjects();
+  const webProjects = getWebProjects();
 
   // Loading state for splash screen
   const [isLoading, setIsLoading] = useState(true);
   const [showContent, setShowContent] = useState(false);
   const [showScrollToTop, setShowScrollToTop] = useState(false);
+  const [activeTab, setActiveTab] = useState<"ux" | "web">("ux");
 
   // Handle loading completion
   const handleLoadingComplete = () => {
@@ -115,20 +117,70 @@ export default function Home() {
                   Projects
                 </p>
                 <h3 className="text-4xl md:text-5xl font-sans italic font-normal text-gray-700 leading-tight text-center mb-10">
-                  Experiences I have Designed
+                  Experiences I have Designed and Developed
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {portfolioProjects.map((project, index) => (
-                    <PortfolioCard
-                      key={index}
-                      title={project.title}
-                      description={project.description}
-                      category={project.category}
-                      previewImage={project.previewImage}
-                      link={project.link}
-                    />
-                  ))}
+                
+                {/* Tabs */}
+                <div className="flex items-center gap-2 mb-10 p-1 bg-gray-100 rounded-lg">
+                  <button
+                    onClick={() => setActiveTab("ux")}
+                    className={`px-6 py-3 rounded-md font-mono text-sm font-medium transition-all duration-300 ${
+                      activeTab === "ux"
+                        ? "bg-white text-gray-700 shadow-sm"
+                        : "text-gray-500 hover:text-gray-700"
+                    }`}
+                  >
+                    UX Design
+                  </button>
+                  <button
+                    onClick={() => setActiveTab("web")}
+                    className={`px-6 py-3 rounded-md font-mono text-sm font-medium transition-all duration-300 ${
+                      activeTab === "web"
+                        ? "bg-white text-gray-700 shadow-sm"
+                        : "text-gray-500 hover:text-gray-700"
+                    }`}
+                  >
+                    Web Development
+                  </button>
                 </div>
+
+                {/* Projects Grid */}
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeTab}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                  >
+                    {activeTab === "ux" ? (
+                      portfolioProjects.map((project, index) => (
+                        <PortfolioCard
+                          key={index}
+                          title={project.title}
+                          description={project.description}
+                          category={project.category}
+                          previewImage={project.previewImage}
+                          link={project.link}
+                        />
+                      ))
+                    ) : (
+                      webProjects.map((project, index) => (
+                        <PortfolioCard
+                          key={index}
+                          title={project.title}
+                          description={project.description}
+                          category={project.category}
+                          previewImage={project.previewImage}
+                          previewType={project.previewType}
+                          link={project.link}
+                          isExternal={project.isExternal}
+                        />
+                      ))
+                    )}
+                  </motion.div>
+                </AnimatePresence>
               </motion.div>
             </section>
             <section className="pt-32">

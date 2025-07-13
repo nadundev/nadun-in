@@ -11,11 +11,13 @@ interface PortfolioCardProps {
   description: string
   category: string
   previewImage: string
+  previewType?: 'image' | 'video'
   link?: string
+  isExternal?: boolean
   className?: string
 }
 
-export default function PortfolioCard({ title, description, category, previewImage, link, className }: PortfolioCardProps) {
+export default function PortfolioCard({ title, description, category, previewImage, previewType = 'image', link, isExternal = false, className }: PortfolioCardProps) {
   const [isHovered, setIsHovered] = useState(false)
 
   const cardContent = (
@@ -32,16 +34,30 @@ export default function PortfolioCard({ title, description, category, previewIma
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-        {/* Image container */}
+        {/* Image/Video container */}
         <div className="relative aspect-[16/10] w-full overflow-hidden">
-          <motion.img
-            src={previewImage}
-            alt={title}
-            className="h-full w-full object-cover object-center"
-            initial={{ scale: 1 }}
-            animate={{ scale: isHovered ? 1.05 : 1 }}
-            transition={{ duration: 0.5 }}
-          />
+          {previewType === 'video' ? (
+            <motion.video
+              src={previewImage}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="h-full w-full object-cover object-center"
+              initial={{ scale: 1 }}
+              animate={{ scale: isHovered ? 1.05 : 1 }}
+              transition={{ duration: 0.5 }}
+            />
+          ) : (
+            <motion.img
+              src={previewImage}
+              alt={title}
+              className="h-full w-full object-cover object-center"
+              initial={{ scale: 1 }}
+              animate={{ scale: isHovered ? 1.05 : 1 }}
+              transition={{ duration: 0.5 }}
+            />
+          )}
         </div>
 
         {/* Content */}
@@ -72,7 +88,7 @@ export default function PortfolioCard({ title, description, category, previewIma
               transition={{ duration: 0.3 }}
             >
               <span className="font-mono inline-flex items-center gap-1 text-base font-medium text-rose-500">
-                View project
+                {isExternal ? "Visit website" : "View project"}
               </span>
             </motion.div>
           )}
@@ -95,11 +111,19 @@ export default function PortfolioCard({ title, description, category, previewIma
     )
 
     if (link) {
-      return (
-        <Link href={link} className="block">
-          {cardContent}
-        </Link>
-      )
+      if (isExternal) {
+        return (
+          <a href={link} target="_blank" rel="noopener noreferrer" className="block">
+            {cardContent}
+          </a>
+        )
+      } else {
+        return (
+          <Link href={link} className="block">
+            {cardContent}
+          </Link>
+        )
+      }
     }
 
     return cardContent

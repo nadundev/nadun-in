@@ -13,6 +13,17 @@ export interface Project {
   tools: string[];
 }
 
+export interface WebProject {
+  title: string;
+  description: string;
+  category: string;
+  previewImage: string;
+  previewType: "image" | "video";
+  websiteUrl: string;
+  technologies: string[];
+  completedDate: string;
+}
+
 export const projects: Project[] = [
   {
     slug: "skilled",
@@ -104,6 +115,31 @@ export const projects: Project[] = [
   },
 ];
 
+export const webProjects: WebProject[] = [
+  {
+    title: "Dynamic Fitness",
+    description:
+      "Best web Sri Lanka winner 2025 - Website for a fitness center in Sri Lanka.",
+    category: "B2C Website",
+    previewImage: "/web-projects/dynamic-fitness.webm",
+    previewType: "video",
+    websiteUrl: "https://dynamicfitness.lk",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
+    completedDate: "December 2024",
+  },
+  {
+    title: "Dev Portfolio - 2023",
+    description:
+      "Nadun Nissanka's Developer Portfolio from 2023 that created using React, three.js and Tailwind CSS",
+    category: "Portfolio Website",
+    previewImage: "/web-projects/nadunPreview.webp",
+    previewType: "image",
+    websiteUrl: "https://nadunnissankauiux.netlify.app/",
+    technologies: ["React", "Three.js", "Tailwind CSS", "Framer Motion"],
+    completedDate: "December 2023",
+  },
+];
+
 // Helper function to get portfolio data for the home page
 export const getPortfolioProjects = () => {
   return projects.map((project) => ({
@@ -113,5 +149,20 @@ export const getPortfolioProjects = () => {
     previewImage: project.previewImage,
     link: `/projects/${project.slug}`,
     slug: project.slug,
+  }));
+};
+
+// Helper function to get web projects data for the home page
+export const getWebProjects = () => {
+  return webProjects.map((project) => ({
+    title: project.title,
+    description: project.description,
+    category: project.category,
+    previewImage: project.previewImage,
+    previewType: project.previewType,
+    link: project.websiteUrl,
+    isExternal: true,
+    technologies: project.technologies,
+    completedDate: project.completedDate,
   }));
 };
