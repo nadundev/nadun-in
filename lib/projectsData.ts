@@ -120,7 +120,7 @@ export const webProjects: WebProject[] = [
     title: "Dev Portfolio - 2023",
     description: "Project that created for a local pub with GSAP animations.",
     category: "GSAP Animation",
-    previewImage: "/web-projects/irishPreview.png",
+    previewImage: "/web-projects/irishPreview.webp",
     previewType: "image",
     websiteUrl: "https://irishpub.netlify.app/",
     technologies: ["React", "Three.js", "Tailwind CSS", "Framer Motion"],
