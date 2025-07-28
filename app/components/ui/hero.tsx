@@ -20,7 +20,7 @@ export default function Hero({
   title = "UX Design Engineer",
   description = "crafting elegant user experiences and doing product design for early stage startups",
   location = "Sri Lanka",
-  company = "Midfunnel.com",
+  company = "Eight25",
   className,
 }: HeroProps) {
   // State to track if letters should be animated
@@ -174,7 +174,7 @@ export default function Hero({
             <span className="text-sm md:text-base font-medium font-mono">{location}</span>
           </motion.div>
           <Link 
-            href="https://midfunnel.com" 
+            href="https://www.eight25media.com/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="flex items-center gap-2"

@@ -404,34 +404,73 @@ export default function Home() {
                   enterprises to elevate their digital presence.
                 </p>
 
-                {/* Company Logos Grid */}
-                <motion.div
-                  className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12 max-w-4xl mx-auto"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                >
-                  {[
-                    { src: "/companies/company-1.svg", alt: "Company 1 Logo" },
-                    { src: "/companies/company-2.svg", alt: "Company 2 Logo" },
-                    { src: "/companies/company-4.svg", alt: "Company 4 Logo" },
-                    { src: "/companies/company-5.svg", alt: "Company 5 Logo" },
-                  ].map((logo, index) => (
-                    <motion.div
-                      key={index}
-                      className="relative flex items-center justify-center p-6 bg-white rounded-lg border border-gray-200 hover:border-gray-300 transition-colors duration-300 ease-out"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <img
-                        src={logo.src}
-                        alt={logo.alt}
-                        className="w-full h-12 object-contain transition-all duration-300"
-                      />
-                    </motion.div>
-                  ))}
-                </motion.div>
+                {/* Company Logos Infinite Carousel */}
+                <div className="mt-12 max-w-6xl mx-auto overflow-hidden relative">
+                  {/* Left fade gradient */}
+                  <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+                  {/* Right fade gradient */}
+                  <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+                  <motion.div
+                    className="flex gap-8"
+                    animate={{ x: ["0%", "-100%"] }}
+                    transition={{
+                      duration: 40,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                    onHoverStart={(e) => {
+                      const target = e.currentTarget as HTMLElement;
+                      if (target) {
+                        target.style.animationPlayState = "paused";
+                      }
+                    }}
+                    onHoverEnd={(e) => {
+                      const target = e.currentTarget as HTMLElement;
+                      if (target) {
+                        target.style.animationPlayState = "running";
+                      }
+                    }}
+                  >
+                    {/* First set of logos */}
+                    {[
+                      { src: "/companies/company-1.svg", alt: "Company 1 Logo" },
+                      { src: "/companies/company-3.svg", alt: "Company 3 Logo" },
+                      { src: "/companies/company-2.svg", alt: "Company 2 Logo" },
+                      { src: "/companies/company-4.svg", alt: "Company 4 Logo" },
+                      { src: "/companies/company-5.svg", alt: "Company 5 Logo" },
+                    ].map((logo, index) => (
+                      <motion.div
+                        key={`first-${index}`}
+                        className="relative flex items-end justify-center p-6 bg-white rounded-lg border border-gray-200 transition-colors duration-300 ease-out min-w-[200px]"
+                      >
+                        <img
+                          src={logo.src}
+                          alt={logo.alt}
+                          className="w-auto h-8 object-contain transition-all duration-300"
+                        />
+                      </motion.div>
+                    ))}
+                    {/* Duplicate set for seamless loop */}
+                    {[
+                      { src: "/companies/company-1.svg", alt: "Company 1 Logo" },
+                      { src: "/companies/company-3.svg", alt: "Company 3 Logo" },
+                      { src: "/companies/company-2.svg", alt: "Company 2 Logo" },
+                      { src: "/companies/company-4.svg", alt: "Company 4 Logo" },
+                      { src: "/companies/company-5.svg", alt: "Company 5 Logo" },
+                    ].map((logo, index) => (
+                      <motion.div
+                        key={`second-${index}`}
+                        className="relative flex items-end justify-center p-6 bg-white rounded-lg border border-gray-200 transition-colors duration-300 ease-out min-w-[200px]"
+                      >
+                        <img
+                          src={logo.src}
+                          alt={logo.alt}
+                          className="w-auto h-8 object-contain transition-all duration-300"
+                        />
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                </div>
               </motion.div>
             </section>
             <section className="py-16">
