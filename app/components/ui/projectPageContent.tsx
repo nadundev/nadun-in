@@ -17,6 +17,7 @@ import KryptoContent from "../projects/kryptoContent";
 import ElectroContent from "../projects/electroContent";
 import TutoryContent from "../projects/tutoryContent";
 import AfterpayContent from "../projects/afterpayContent";
+import HavletContent from "../projects/havletContent";
 
 interface ProjectPageContentProps {
   project: Project;
@@ -25,6 +26,8 @@ interface ProjectPageContentProps {
 // Function to render project-specific content
 const renderProjectContent = (slug: string) => {
   switch (slug) {
+    case "havlet":
+      return <HavletContent />;
     case "tutory":
       return <TutoryContent />;
     case "electro":

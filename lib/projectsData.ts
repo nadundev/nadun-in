@@ -99,6 +99,21 @@ export const projects: Project[] = [
     tools: ["Figma", "TlDraw"],
   },
   {
+    slug: "havlet",
+    title: "Havlet Yard Website",
+    description:
+      "This a landing page design I have done for a fictional company called Havlet Yard.",
+    category: "Website Design",
+    image: "/havlet/havlet-yard-main.webp",
+    previewImage: "/havlet/havlet-yard.webp",
+    primaryColor: "#D791FF", // Blue
+    gradient: "linear-gradient(180deg, #D791FF, #fff 30%)",
+    role: "UX Designer",
+    startDate: "November 2023",
+    completedDate: "November 2023",
+    tools: ["Figma"],
+  },
+  {
     slug: "afterpay",
     title: "Afterpay Dashboard Design",
     description:
